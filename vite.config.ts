@@ -1,4 +1,4 @@
-import linaria from '@linaria/rollup';
+import wyw from '@wyw-in-js/vite';
 import react from '@vitejs/plugin-react';
 import postcssNested from 'postcss-nested';
 import { defineConfig } from 'vite';
@@ -27,7 +27,11 @@ export default defineConfig({
         plugins: [['optimize-clsx', { functionNames: ['getCellClassname'] }]]
       }
     }),
-    !isTest && linaria({ preprocessor: 'none' })
+    // !isTest && linaria({ preprocessor: 'none' })
+    wyw({
+      exclude: ['./.cache/**/*'],
+      preprocessor: 'none',
+    })
   ],
   css: {
     postcss: {

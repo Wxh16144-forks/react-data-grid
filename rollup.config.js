@@ -1,5 +1,5 @@
 import { isAbsolute } from 'node:path';
-import linaria from '@linaria/rollup';
+import wyw from '@wyw-in-js/rollup';
 import postcss from 'rollup-plugin-postcss';
 import postcssNested from 'postcss-nested';
 import { babel } from '@rollup/plugin-babel';
@@ -24,9 +24,9 @@ export default {
       sourcemap: true
     }
   ],
-  external: (id) => !id.startsWith('.') && !id.startsWith('@linaria:') && !isAbsolute(id),
+  external: (id) => !id.startsWith('.') && !isAbsolute(id),
   plugins: [
-    linaria({
+    wyw({
       preprocessor: 'none',
       classNameSlug(hash) {
         // We add the package version as suffix to avoid style conflicts
